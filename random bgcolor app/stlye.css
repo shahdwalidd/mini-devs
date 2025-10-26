@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.5s ease;
+}
+#start-btn{
+   
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #dcd979;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  
+
+  
+}
+ #bgcolor {
+    height: 100vh; 
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3d4c4e;
+    transition: background-color 0.5s ease; 
+  }

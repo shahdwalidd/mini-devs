@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>IBM APP</title>
+</head>
+<body>
+   
+    <input type="text" id="t1" placeholder="weight"        >
+    <br>
+    <input type="text" id="t2" placeholder="hieght">
+    <br>
+    
+<button id="sub-btn"> calculate</button>
+<div id="result-box">
+   <H4 id="bmi"></H4>
+   <h4 id="bmi categiry"></h4>
+</div><script>
+  document.getElementById("sub-btn").addEventListener("click", function() {
+    var weight = document.getElementById("t1").value;
+    var height = document.getElementById("t2").value;
+
+    var bmi = weight / (height * height);
+    document.getElementById("bmi").innerHTML = bmi;
+
+if(bmi<18){
+    document.getElementById("bmi categiry").innerHTML=" you are thin";
+    
+}
+else if( bmi<24.9)
+{
+document.getElementById("bmi categiry").innerHTML =" you are good";
+}
+else if(bmi<29.9){
+    document.getElementById("bmi categiry").innerHTML =" you are overweight";
+}
+else if(bmi<34.9){document.getElementById("bmi categiry").innerHTML =" you have a Mild Obesity";}
+else if(bmi<39.9){
+   document.getElementById("bmi categiry").innerHTML =" you have a moderate Obesity";
+}
+else{
+ document.getElementById("bmi categiry").innerHTML =" you have a serve Obesity";
+}
+  });
+</script>
+
+</body>
+</html>

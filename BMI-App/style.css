@@ -1,0 +1,32 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+background-image: url(./weight.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+input{
+    display: block;
+    margin: 10px;
+    padding: 10px;
+}
+ #result-box {
+
+background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
+    width: 250px;
+}
