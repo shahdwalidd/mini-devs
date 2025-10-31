@@ -93,11 +93,27 @@ function deletepost(){
             console.log("error occured", request.status);
         }
       }}
+      function filterpost(){
+        let request = new XMLHttpRequest(); 
+      request.open('GET', 'https://jsonplaceholder.typicode.com/posts?userId=1');
+      request.responseType ="json";
+      request.send();
+      request.onload = function() {
+        let posts=(request.response);
+        if(request.status <= 200 || request.status < 300){
+           
+        for(let post of posts){
+        document.getElementById("content").innerHTML += `<h2>${post.title}</h2>`;
+        }}else{
+            console.log("error occured", request.status);
+        }
+      }}
 // readpost();   //GET request
 
 // createposts(); // POST request
 // updatepost(); //PUT request
-  deletepost(); //DELETE request
+  // deletepost(); //DELETE request
+ filterpost(); // Filtering GET request
 
     </script>
 </body>
