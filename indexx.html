@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello from json request</h1>
+  <div id ="content"></div>
+
+    <script>
+     function readpost(){
+        let request = new XMLHttpRequest();
+
+      request.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+      request.responseType ="json";
+      request.send();
+      request.onload = function() {
+        let posts=(request.response);
+        if(request.status <= 200 || request.status < 300){
+           
+        for(let post of posts){
+        document.getElementById("content").innerHTML += `<h2>${post.title}</h2>`;
+        }}else{
+            console.log("error occured", request.status);
+        }
+      }
+}
+function createposts(){
+    let request = new XMLHttpRequest();
+    request.open('POST', 'https://jsonplaceholder.typicode.com/posts');
+    request.responseType ="json";
+    request.setRequestHeader('Accept', 'application/json;charset=UTF-8');
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    let newpost = {
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+      };
+      request.send (JSON.stringify(newpost));
+      request.onload = function() {
+        if(request.status <= 200 || request.status < 300){
+            console.log("Post created successfully");
+        let responsepost=(request.response);
+        console.log(responsepost);
+         console.log("Post created with ID:", responsepost.id);
+         console.log(request.status);
+  }
+        else{
+            console.log("error occured", request.status);
+        }
+      }           
+}
+function updatepost(){
+    let request = new XMLHttpRequest();
+    request.open('PUT', 'https://jsonplaceholder.typicode.com/posts/1');
+    request.responseType ="json";
+    request.setRequestHeader('Accept', 'application/json;charset=UTF-8');
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    let updatedpost = {
+        id: 1,
+        title: 'updated title',
+        body: 'updated body',
+        userId: 1,
+      };
+      request.send (JSON.stringify(updatedpost));
+      request.onload = function() {
+        if(request.status <= 200 || request.status < 300){
+            console.log("Post updated successfully");
+        let responsepost=(request.response);
+        console.log(responsepost);
+         console.log("Post updated with ID:", responsepost.id);
+         console.log(request.status);
+  }
+        else{
+            console.log("error occured", request.status);
+        }
+      }          
+
+}
+function deletepost(){
+    let request = new XMLHttpRequest();
+    request.open('DELETE', 'https://jsonplaceholder.typicode.com/posts/1');
+    request.responseType ="json";
+    request.send ();
+      request.onload = function() {
+        if(request.status <= 200 || request.status < 300){
+            console.log("Post deleted successfully");
+    console.log(request.status);
+  }
+        else{
+            console.log("error occured", request.status);
+        }
+      }}
+// readpost();   //GET request
+
+// createposts(); // POST request
+// updatepost(); //PUT request
+  deletepost(); //DELETE request
+
+    </script>
+</body>
+</html>
